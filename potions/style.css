@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900&display=swap');
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    
+}
+
+#toolContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#berryContainer {
+    width: 45%;
+}
+
+.berry {
+    display: inline-block;
+    padding: 3px;
+    margin: 7px;
+    border: 4px solid grey;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.berry img {
+    width: 50%;
+}
+
+.berry p {
+    font-size: 10pt;
+}
+
+#potionContainer {
+    border: 3px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.potion {
+    display: flex;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.potion img {
+    float: left;
+    align-self: center;
+    justify-self: center;
+    margin: 0 15px;
+    
+}
+
+.potionText {
+    font-size: 10pt;
+    display: inline;
+    flex-direction: column;
+    line-height: 55%;
+    flex: 1;
+    padding-right: 15px;
+}
