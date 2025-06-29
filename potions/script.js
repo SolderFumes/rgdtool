@@ -48,7 +48,7 @@ possibleBerries.forEach((berry) => {
     berryContainer.appendChild(card);
 
     let img = document.createElement('img');
-    img.src = `/images/${berry}.gif`;
+    img.src = `/rgdtool/images/${berry}.gif`;
     
     let nameText = document.createElement('p');
     nameText.innerText = berry;
@@ -105,7 +105,7 @@ function updatePotions() {
             potionContainer.appendChild(card);
 
             let img = document.createElement('img');
-            img.src = `/images/${potionName}.gif`;
+            img.src = `/rgdtool/images/${potionName}.gif`;
 
             let nameText = document.createElement('p');
             nameText.innerText = potionName;
