@@ -23,6 +23,7 @@ body {
     border: 4px solid grey;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
 }
 
 .berry img {
@@ -45,8 +46,10 @@ body {
 .potion {
     display: flex;
     border: 3px solid black;
+    margin: 3px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    max-width: 20%;
+    flex-wrap: nowrap;
     width: fit-content;
 }
 
@@ -62,7 +65,10 @@ body {
     font-size: 10pt;
     display: inline;
     flex-direction: column;
-    line-height: 55%;
     flex: 1;
     padding-right: 15px;
+}
+
+.potionText p {
+    margin: 3%;
 }

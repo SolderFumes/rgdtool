@@ -35,7 +35,7 @@ const potion_effects = {
     "Balance": "Resets your ➔ Walkspeed and ↑ Jump power if they are below average; then gain ➔ 1 and ↑ 5."
 };
 const possibleBerries = ['Fervor', 'Ardor', 'Virulent', 'Theriac', 'Accrue', 'Tenebrous', 'Gambol', 'Skew', 'Abate', 'Ichor', 'Vigor', 'Lucre', 'Cavort', 'Luminous', 'Algid', 'Torrid'];
-
+const possiblePotions = Object.keys(recipes);
 // *** BERRY STUFF ***
 let hadBerries = [];
 let berryContainer = document.getElementById('berryContainer');
@@ -82,49 +82,51 @@ function checkCraftable() {
             retList.push(name);
         }
     }
-    console.log(retList);
     return retList;
 }
+
+//create potions
+possiblePotions.forEach((potionName) => {
+    let card = document.createElement('div');
+    card.className = 'potion';
+    potionContainer.appendChild(card);
+
+    let img = document.createElement('img');
+    img.src = `/rgdtool/images/${potionName}.gif`;
+
+    let nameText = document.createElement('p');
+    nameText.innerText = potionName;
+
+    let effectText = document.createElement('p');
+    effectText.innerText = potion_effects[potionName];
+
+    let recipeText = document.createElement('p');
+    recipeText.innerText = `${recipes[potionName][0]}, ${recipes[potionName][1]}`;
+
+    let potionText = document.createElement('div');
+    potionText.className = 'potionText';
+    potionText.appendChild(nameText);
+    potionText.appendChild(effectText);
+    potionText.appendChild(recipeText);
+    
+    card.appendChild(img);
+    card.appendChild(potionText);
+    potionCards.push(card);
+});
 
 function updatePotions() {
     let craftable = checkCraftable();
     //remove non-craftable potion cards
     potionCards.forEach((card) => {
-        let potionName = card.querySelector('p');
+        let potionName = card.querySelector('p').innerText;
+        console.log(potionName);
         if (!craftable.includes(potionName)) {
-            card.remove()
+            console.log('setting to white');
+            card.style.backgroundColor = '';
         }
-    });
-
-    //create new potion cards
-    craftable.forEach((potionName) => {
-        //if card doesn't already exist
-        if (!potionCards.includes(potionName)) {
-            let card = document.createElement('div');
-            card.className = 'potion';
-            potionContainer.appendChild(card);
-
-            let img = document.createElement('img');
-            img.src = `/rgdtool/images/${potionName}.gif`;
-
-            let nameText = document.createElement('p');
-            nameText.innerText = potionName;
-
-            let effectText = document.createElement('p');
-            effectText.innerText = potion_effects[potionName];
-
-            let recipeText = document.createElement('p');
-            recipeText.innerText = `${recipes[potionName][0]}, ${recipes[potionName][1]}`;
-
-            let potionText = document.createElement('div');
-            potionText.className = 'potionText';
-            potionText.appendChild(nameText);
-            potionText.appendChild(effectText);
-            potionText.appendChild(recipeText);
-            
-            card.appendChild(img);
-            card.appendChild(potionText);
-            potionCards.push(card);
+        else {
+            console.log('changing to yellow');
+            card.style.backgroundColor = '#ffffba';
         }
     });
 }
