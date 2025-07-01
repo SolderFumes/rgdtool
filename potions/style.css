@@ -82,6 +82,11 @@ body {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
+    transition: ease 0.2s;
+}
+
+.berry:hover {
+    transform: scale(1.15);
 }
 
 .berry img {
