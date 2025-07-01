@@ -4,26 +4,43 @@ themeButton.onclick = toggleTheme;
 let darkModeIcon = 'https://img.icons8.com/?size=40&id=45475&format=png&color=000000'
 let lightModeIcon = 'https://img.icons8.com/?size=40&id=45475&format=png&color=ffffff'
 
-prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)');
-//initialize theme
-if (prefersLightTheme.matches) {
-    console.log('prefers lightmode');
-    document.body.setAttribute('data-theme', 'light');
-    themeButton.src = darkModeIcon;
+//check for local storage
+if (sessionStorage['mode'] == 'dark') {
+    dark();
 }
-else {
-    console.log('prefers darkmode');
-    document.body.setAttribute('data-theme', 'dark');
-    themeButton.src = lightModeIcon;
+else if (sessionStorage['mode'] == 'light') {
+    light();
+} 
+else if (sessionStorage.getItem('mode') == undefined) {
+    prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)');
+    //initialize theme
+    if (prefersLightTheme.matches) {
+        console.log('prefers lightmode');
+        light();
+    }
+    else {
+        console.log('prefers darkmode');
+        dark();
+    }
 }
 
 function toggleTheme() {
     if (document.body.getAttribute('data-theme') == 'dark') {
-        document.body.setAttribute('data-theme', 'light');
-        themeButton.src = darkModeIcon;
+        light();
     }
     else {
-        document.body.setAttribute('data-theme', 'dark');
-        themeButton.src = lightModeIcon;
+        dark();
     }
+}
+
+function dark() {
+    sessionStorage.setItem('mode', 'dark');
+    document.body.setAttribute('data-theme', 'dark');
+    themeButton.src = lightModeIcon;
+}
+
+function light() {
+    sessionStorage.setItem('mode', 'light');
+    document.body.setAttribute('data-theme', 'light');
+    themeButton.src = darkModeIcon;
 }
