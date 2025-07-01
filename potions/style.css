@@ -4,6 +4,7 @@
     --text-color: #000000;
     --highlight-color: #ffffba;
     --border-color: #000000;
+    --text-size: 10pt;
 }
 
 [data-theme="dark"] {
@@ -12,6 +13,7 @@
     --highlight-color: #57553d;
     --border-color: #5c5c5b;
 }
+
 
 body {
     font-family: "Inter", sans-serif;
@@ -134,4 +136,29 @@ body {
 
 .potionText p {
     margin: 3%;
+}
+/* mobile device suppport */
+@media (max-width: 600px) {
+    #potionContainer {
+        width: 95%;
+    }
+
+    .potion {
+        flex-direction: column;
+        max-width: none;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        text-align: center;
+    }
+
+    .potion img {
+        margin: 10px 0;
+    }
+
+    .potionText {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px 10px;
+    }
 }
