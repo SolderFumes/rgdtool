@@ -58,6 +58,7 @@ possibleBerries.forEach((berry) => {
     berryCards.push(card);
 });
 
+
 function clickBerry(card) {
     let berryName = card.querySelector('p').innerText;
     if (card.style.borderColor == 'grey') {
