@@ -42,7 +42,7 @@ let berryContainer = document.getElementById('berryContainer');
 let berryCards = [];
 possibleBerries.forEach((berry) => {
     let card = document.createElement('div');
-    card.className = 'berry';
+    card.classList.add('berry');
     card.style.borderColor = 'grey'; //need to specify for weird dom stuff
     card.onclick = () => { clickBerry(card) };
     berryContainer.appendChild(card);
@@ -120,14 +120,11 @@ function updatePotions() {
     //remove non-craftable potion cards
     potionCards.forEach((card) => {
         let potionName = card.querySelector('p').innerText;
-        console.log(potionName);
         if (!craftable.includes(potionName)) {
-            console.log('setting to white');
-            card.style.backgroundColor = '';
+            card.classList.remove('highlighted');
         }
         else {
-            console.log('changing to yellow');
-            card.style.backgroundColor = '#ffffba';
+            card.classList.add('highlighted');
         }
     });
 }
