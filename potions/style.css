@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900&display=swap');
 :root {
-    --background-color: #191917;
-    --text-color: #ffffff;
-    --highlight-color: #57553d;
-    --border-color: #5c5c5b;
-}
-
-[data-theme="light"] {
     --background-color: #ffffff;
     --text-color: #000000;
     --highlight-color: #ffffba;
     --border-color: #000000;
+}
+
+[data-theme="dark"] {
+    --background-color: #191917;
+    --text-color: #ffffff;
+    --highlight-color: #57553d;
+    --border-color: #5c5c5b;
 }
 
 body {
